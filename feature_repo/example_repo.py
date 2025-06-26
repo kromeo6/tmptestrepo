@@ -32,7 +32,7 @@ driver = Entity(name="driver", join_keys=["driver_id"])
 driver_stats_source = FileSource(
     name="driver_hourly_stats_source",
     # path="data/driver_stats.parquet",
-    path="/feast-data/my_project/feature_repo/data",
+    path="/feast-data/my_project/feature_repo/data/driver_stats.parquet",
     timestamp_field="event_timestamp",
     created_timestamp_column="created",
 )
