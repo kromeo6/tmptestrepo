@@ -136,7 +136,7 @@ driver_stats_fresh_fv = FeatureView(
         Field(name="conv_rate_plus_val2", dtype=Float64),
     ],
 )
-def transformed_conv_rate_fresh(inputs: pd.DataFrame) -> pd.DataFrame:
+def transformed_conv_rate_fresh_changed(inputs: pd.DataFrame) -> pd.DataFrame:
     df = pd.DataFrame()
     df["conv_rate_plus_val1"] = inputs["conv_rate"] + inputs["val_to_add"]
     df["conv_rate_plus_val2"] = inputs["conv_rate"] + inputs["val_to_add_2"]
@@ -145,5 +145,5 @@ def transformed_conv_rate_fresh(inputs: pd.DataFrame) -> pd.DataFrame:
 
 driver_activity_v3 = FeatureService(
     name="driver_activity_v3",
-    features=[driver_stats_fresh_fv, transformed_conv_rate_fresh],
+    features=[driver_stats_fresh_fv, transformed_conv_rate_fresh_changed],
 )
