@@ -11,8 +11,8 @@ os.environ.update({
     "FEAST_S3_ENDPOINT_URL": "http://localhost:9001"
 })
 
-# Connect to Feast store
-store = FeatureStore(repo_path=".")
+# Connect to Feast store (point to feature_repo directory)
+store = FeatureStore(repo_path="./feature_repo")
 
 # Create entity DataFrame
 entity_df = pd.DataFrame({
