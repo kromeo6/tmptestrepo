@@ -4,11 +4,8 @@ offline_store:
     type: file
 online_store:
     type: redis
-    connection_string: redis.feast.svc.cluster.local:6379
+    connection_string: localhost:6379
 registry:
-    path: postgresql+psycopg://feast:feast@postgres.feast.svc.cluster.local:5432/feast
+    path: postgresql+psycopg://feast:feast@localhost:5432/feast
     registry_type: sql
 entity_key_serialization_version: 3
-# By default, no_auth for authentication and authorization, other possible values kubernetes and oidc. Refer the documentation for more details.
-auth:
-    type: no_auth

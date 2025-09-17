@@ -15,12 +15,12 @@ driver = Entity(
 
 # FileSource pointing to the MinIO service inside the Kubernetes cluster
 minio_source = FileSource(
-    name="driver_stats_minio_source",
+    name="driver_stats_k8s_source",
     path="s3://test-bucket/driver_stats.parquet",
     timestamp_field="event_timestamp",
     created_timestamp_column="created",
     description="Driver stats from MinIO S3 on Kubernetes",
-    s3_endpoint_override="http://minio.kubeflow.svc.cluster.local:9000"
+    s3_endpoint_override="http://localhost:9001"
 )
 
 # FeatureView
