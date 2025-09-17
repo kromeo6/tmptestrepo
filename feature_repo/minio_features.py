@@ -20,7 +20,7 @@ minio_source = FileSource(
     timestamp_field="event_timestamp",
     created_timestamp_column="created",
     description="Driver stats from MinIO S3 on Kubernetes",
-    s3_endpoint_override="http://minio.kubeflow.svc.cluster.local:9000"
+    s3_endpoint_override="http://minio-service.kubeflow.svc.cluster.local:9000"
 )
 
 # FeatureView
