@@ -14,15 +14,26 @@ os.environ.update({
 # Connect to Feast store (point to feature_repo directory)
 store = FeatureStore(repo_path="./feature_repo")
 
-# Create entity DataFrame
+# Create entity DataFrame with timezone-aware timestamps
+# Option 1: Use fixed timestamps (recommended for testing)
 entity_df = pd.DataFrame({
     "driver_id": [1, 2, 3],
     "event_timestamp": [
-        datetime.now() - timedelta(days=1),
-        datetime.now() - timedelta(days=2),  
-        datetime.now() - timedelta(days=3),
+        datetime(2021, 4, 12, 10, 59, 42),
+        datetime(2021, 4, 12, 8, 12, 10),
+        datetime(2021, 4, 12, 16, 40, 26),
     ]
 })
+
+# Option 2: If you need current timestamps, use this instead:
+# entity_df = pd.DataFrame({
+#     "driver_id": [1, 2, 3], 
+#     "event_timestamp": [
+#         pd.to_datetime("now", utc=True) - pd.Timedelta(days=1),
+#         pd.to_datetime("now", utc=True) - pd.Timedelta(days=2),
+#         pd.to_datetime("now", utc=True) - pd.Timedelta(days=3),
+#     ]
+# })
 
 print("Fetching offline features using Feast offline store...")
 print(entity_df)
