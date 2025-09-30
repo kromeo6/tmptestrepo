@@ -1,0 +1,6 @@
+feast[redis,postgres]==0.53.0
+pandas
+boto3
+pyarrow
+psycopg
+s3fs 

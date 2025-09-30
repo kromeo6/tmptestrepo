@@ -1,0 +1,11 @@
+project: my_project
+provider: local
+offline_store:
+    type: file
+online_store:
+    type: redis
+    connection_string: localhost:6379
+registry:
+    path: postgresql+psycopg://feast:feast@localhost:5432/feast
+    registry_type: sql
+entity_key_serialization_version: 3
